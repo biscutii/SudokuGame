@@ -219,6 +219,30 @@ struct sudokuBoard createSudokuBoard(struct sudokuBoard s)// There will be 30 fi
     return s;
 }
 
+void printBoard (struct sudokuBoard s)
+{
+    int x;
+    int y;
+    for (y = 0; y < 9; y++)
+    {
+        for (x = 0; x < 9; x++)
+        {
+            printf("%d", s.board[y][x]);
+            if (x == 2 || x == 5)
+            {
+                printf(" |");
+            }
+            printf(" ");
+        }
+        if (y == 2 || y == 5)
+        {
+            printf("\n");
+            printf("- - - - - - - - - - -");
+        }
+        printf("\n");
+    }
+}
+
 int main ()
 {
     srand(time(NULL));
@@ -236,15 +260,7 @@ int main ()
 
     s = createSudokuBoard(s);
 
-    for (y = 0; y < 9; y++)
-    {
-        for (x = 0; x < 9; x++)
-        {
-            printf("%d", s.board[y][x]);
-            printf(" ");
-        }
-        printf("\n");
-    }
+    printBoard(s);
 
     return 0;
 }
