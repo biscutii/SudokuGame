@@ -34,6 +34,7 @@ struct sudokuBoard createSudokuBoard(struct sudokuBoard s)// There will be 30 fi
                 int is_number_colliding = 0;
                 int cell_number = rand() % (cell_max_number + 1 - cell_min_number) + cell_min_number;
                 int i;
+                int i2;
 
                 for (i = 0; i < 9; i++)
                 {
@@ -48,6 +49,159 @@ struct sudokuBoard createSudokuBoard(struct sudokuBoard s)// There will be 30 fi
                     if (s.board[i][x] == cell_number)
                     {
                         is_number_colliding = 1;
+                    }
+                }
+
+                if (x == 0 || x == 1 || x == 2)
+                {
+                    if (y == 0 || y == 1 || y == 2)
+                    {
+                        for (i = 0; i < 3; i++)
+                        {
+                            for (i2 = 0; i2 < 3; i2++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            }
+                        }    
+                    }
+                }
+
+                if (x == 3 || x == 4 || x == 5)
+                {
+                    if (y == 0 || y == 1 || y == 2)
+                    {
+                        for (i = 3; i < 6; i++)
+                        {
+                            for (i2 = 0; i2 < 3; i2++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            } 
+                        }
+                    }
+                }
+
+                if (x == 6 || x == 7 || x == 8)
+                {
+                    if (y == 0 || y == 1 || y == 2)
+                    {
+                        for (i = 6; i < 9; i++)
+                        {
+                            for (i2 = 0; i2 < 3; i2++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (x == 0 || x == 1 || x == 2)
+                {
+                    if (y == 3 || y == 4 || y == 5)
+                    {
+                        for (i = 0; i < 3; i++)
+                        {
+                            for (i2 = 3; i2 < 6; i2++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (x == 3 || x == 4 || x == 5)
+                {
+                    if (y == 3 || y == 4 || y == 5)
+                    {
+                        for (i = 3; i < 6; i++)
+                        {
+                            for (i2 = 3; i2 < 6; i2++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (x == 6 || x == 7 || x == 8)
+                {
+                    if (y == 3 || y == 4 || y == 5)
+                    {
+                        for (i = 6; i < 9; i++)
+                        {
+                            for (i2 = 3; i2 < 6; i2++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (x == 0 || x == 1 || x == 2)
+                {
+                    if (y == 6 || y == 7 || y == 8)
+                    {
+                        for (i = 0; i < 3; i++)
+                        {
+                            for (i2 = 6; i < 9; i++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (x == 3 || x == 4 || x == 5)
+                {
+                    if (y == 6 || y == 7 || y == 8)
+                    {
+                        for (i = 3; i < 6; i++)
+                        {
+                            for (i2 = 6; i2 < 9; i2++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if ( x == 6 || x == 7 || x == 8)
+                {
+                    if (y == 6 || y == 7 || y == 8)
+                    {
+                        for (i = 6; i < 9; i++)
+                        {
+                            for (i2 = 6; i < 9; i++)
+                            {
+                                if (s.board[i2][i] == cell_number)
+                                {
+                                    is_number_colliding = 1;
+                                }
+                            }
+                        }
                     }
                 }
 
