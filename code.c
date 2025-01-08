@@ -194,7 +194,7 @@ struct sudokuBoard createSudokuBoard(struct sudokuBoard s)// There will be 30 fi
                     {
                         for (i = 6; i < 9; i++)
                         {
-                            for (i2 = 6; i < 9; i++)
+                            for (i2 = 6; i2 < 9; i2++)
                             {
                                 if (s.board[i2][i] == cell_number)
                                 {
