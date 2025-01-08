@@ -194,7 +194,7 @@ struct sudokuBoard createSudokuBoard(struct sudokuBoard s)// There will be 30 fi
                     {
                         for (i = 6; i < 9; i++)
                         {
-                            for (i2 = 6; i < 9; i++)
+                            for (i2 = 6; i2 < 9; i2++)
                             {
                                 if (s.board[i2][i] == cell_number)
                                 {
@@ -223,21 +223,71 @@ void printBoard (struct sudokuBoard s)
 {
     int x;
     int y;
+
+    printf("  A B C   D E F   G H I\n");
     for (y = 0; y < 9; y++)
     {
+        if (y == 0)
+        {
+            printf("- - - - - - - - - - - - -");
+            printf("\n");
+        }
+
         for (x = 0; x < 9; x++)
         {
+            if (x == 0)
+            {
+                printf("| ");
+            }
+
             printf("%d", s.board[y][x]);
+
             if (x == 2 || x == 5)
             {
                 printf(" |");
             }
+            else if (x == 8)
+            {
+                printf(" |");
+
+                switch (y)
+                {
+                    case 0:
+                        printf(" 1");
+                        break;
+                    case 1:
+                        printf(" 2");
+                        break;
+                    case 2:
+                        printf(" 3");
+                        break;
+                    case 3:
+                        printf(" 4");
+                        break;
+                    case 4:
+                        printf(" 5");
+                        break;
+                    case 5:
+                        printf(" 6");
+                        break;
+                    case 6:
+                        printf(" 7");
+                        break;
+                    case 7:
+                        printf(" 8");
+                        break;
+                    case 8:
+                        printf(" 9");
+                        break;
+                }
+            }
+
             printf(" ");
         }
-        if (y == 2 || y == 5)
+        if (y == 2 || y == 5 || y == 8)
         {
             printf("\n");
-            printf("- - - - - - - - - - -");
+            printf("- - - - - - - - - - - - -");
         }
         printf("\n");
     }
@@ -249,6 +299,7 @@ int main ()
     struct sudokuBoard s;
     int x;
     int y;
+    int gameloop = 1;
 
     for (y = 0; y < 9; y++)
     {
@@ -260,7 +311,57 @@ int main ()
 
     s = createSudokuBoard(s);
 
-    printBoard(s);
+    while (gameloop)
+    {
+        char gridChange[2];
+        int numberChange;
+        int x;
+        int y;
+
+        printBoard(s);
+
+        printf("What grid are you changing?: ");
+        scanf("%s", &gridChange);
+
+        printf("What are you changing the number to?: ");
+        scanf("%d", &numberChange);
+
+        switch (gridChange[0])
+        {
+            case ('A'):
+                x = 0;
+                break;
+            case ('B'):
+                x = 1;
+                break;
+            case ('C'):
+                x = 2;
+                break;
+            case ('D'):
+                x = 3;
+                break;
+            case ('E'):
+                x = 4;
+                break;
+            case ('F'):
+                x = 5;
+                break;
+            case ('G'):
+                x = 6;
+                break;
+            case ('H'):
+                x = 7;
+                break;
+            case ('I'):
+                x = 8;
+                break;
+
+            y = atoi(&gridChange[1]) - 1;
+
+            s.board[y][x] = numberChange;
+
+        }
+    }
 
     return 0;
 }
