@@ -326,43 +326,40 @@ int main ()
         printf("What are you changing the number to?: ");
         scanf("%d", &numberChange);
 
-        switch (gridChange[0])
+        if (gridChange[0] == 'A')
         {
-            case ('A'):
-                x = 0;
-                break;
-            case ('B'):
-                x = 1;
-                break;
-            case ('C'):
-                x = 2;
-                break;
-            case ('D'):
-                x = 3;
-                break;
-            case ('E'):
-                x = 4;
-                break;
-            case ('F'):
-                x = 5;
-                break;
-            case ('G'):
-                x = 6;
-                break;
-            case ('H'):
-                x = 7;
-                break;
-            case ('I'):
-                x = 8;
-                break;
+            x = 0;
+        } else if (gridChange[0] == 'B')
+        {
+            x = 1;
+        } else if (gridChange[0] == 'C')
+        {
+            x = 2;
+        } else if (gridChange[0] == 'D')
+        {
+            x = 3;
+        } else if (gridChange[0] == 'E')
+        {
+            x = 4;
+        } else if (gridChange[0] == 'F')
+        {
+            x = 5;
+        } else if (gridChange[0] == 'G')
+        {
+            x = 6;
+        } else if (gridChange[0] == 'H')
+        {
+            x = 7;
+        } else if (gridChange[0] == 'I')
+        {
+            x = 8;
+        }
 
-            y = atoi(&gridChange[1]) - 1;
 
-            s.board[y][x] = numberChange;
+        y = atoi(&gridChange[1]) - 1;
+        s.board[y][x] = numberChange;
 
         }
-    }
-
     return 0;
 }
 
